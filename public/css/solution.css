@@ -1,0 +1,41 @@
+.code {
+  height: 30%;
+}
+
+.exercise-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0px 1rem;
+  flex: 10;
+}
+.exercise-wrapper > div {
+  margin-top: 2rem;
+}
+.exercise-wrapper label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.frame {
+  height: 40%;
+}
+iframe {
+  width: 100%;
+  background-color: whitesmoke;
+  height: 100%;
+}
+.textarea {
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  height: fit-content;
+  border: 1px darkblue solid;
+  padding: 0.3rem 0.5rem;
+  background-color: whitesmoke;
+}
+textarea {
+  width: 100%;
+  height: calc(100% - 2rem);
+  border: 1px darkblue solid;
+  padding: 0.3rem 0.5rem;
+  background-color: whitesmoke;
+}

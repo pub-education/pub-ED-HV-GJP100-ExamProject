@@ -1,0 +1,18 @@
+.nav {
+  padding: 1rem 0.5rem;
+  border: groove 4px darkblue;
+  border-radius: 8px;
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+}
+
+.nav input {
+  margin-left: 0.5rem;
+}
+.nav label {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
