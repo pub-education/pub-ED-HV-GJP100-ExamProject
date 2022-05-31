@@ -24,7 +24,7 @@ Navigation filen använder sig av komponenterna ModuleItem för att skapa huvudm
 Solution är navet i hela sidan då det är där som all data från data.json placeras in i de tre områdena Assignment, Solution code och Output from code. Vi använder oss av ett iframe element då man kan ladda en hel html sida i den. Här så assimilerar vi html kod och javascripts koden till ett html dokument i variabeln html som sedan laddas med srcDoc attributet in i iframe.
 
 Info:
-För att kunna installera och köra projektet så rekomenderas node v17.3.0 som anv'ndes f;r att bygga projektet. Jag rekomenderar också att man installerar nvm [nvm](https://github.com/nvm-sh/nvm) för att kunna jobba med olika versioner av node.
+För att kunna installera och köra projektet så rekomenderas node v17.3.0 som användes för att bygga projektet. Jag rekomenderar också att man installerar nvm [nvm](https://github.com/nvm-sh/nvm) för att kunna jobba med olika versioner av node.
 
 Packa upp zip filen och kör npm install i roten. Då installeras alla dependencies i node_modules foldern som inte skickas med pga storleken. Därefter så startas programmet med att man kör npm run app.
 

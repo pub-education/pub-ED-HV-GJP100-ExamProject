@@ -55,20 +55,6 @@
       };
 
       let Global = {};
-      /**
-       * ***** functions *****
-       */
-      const getCoordinates = () => {
-        const obj = document.querySelector("#printout");
-        const bodyWidth = obj.offsetWidth;
-        const objHeight = obj.offsetHeight;
-        const xCoord = Math.floor(Math.random() * (bodyWidth - 50));
-        const yCoord = Math.floor(Math.random() * (objHeight - 50));
-        const coord = {};
-        coord.x = xCoord;
-        coord.y = yCoord;
-        return coord;
-      };
 
       const moveItem = () => {
         const obj = document.querySelector("#box");
