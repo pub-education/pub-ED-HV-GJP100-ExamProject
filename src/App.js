@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from './components/Navigation';
 import Solution from './components/Solutions';
+import Footer from './components/Footer';
 
 
 const App = () => {
     const [exerciseList, setExerciseList] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [exerciseNumber, setExerciseNumber] = useState(null);
-    const [module,] = useState("module_1");
+
     const getData = async () => {
         await fetch("http://127.0.0.1:3003/data/data.json")
             .then(data => data.json())
             .then(data => {
-                //console.log("data", data);
                 setExerciseList(data);
                 setIsLoading(false);
             });
@@ -21,17 +21,22 @@ const App = () => {
         getData();
     }, []);
 
-    const handleOnChange = (value) => {
+    const handleOnChange = (value, module) => {
         const list = exerciseList[module];
         const obj = list[value];
         setExerciseNumber(obj);
     };
     return (
         <div className="page-wrapper">
+            <div className="page-header">
+                <h1>Final Project</h1>
+                <h3>Course: GJP100</h3>
+                <p>Spring semester 2022</p>
+            </div>
             {isLoading
                 ? "Data is loading ..."
                 : <Navigation
-                    exerciseList={exerciseList[module]}
+                    exerciseList={exerciseList}
                     handleOnChange={handleOnChange}
                 />
             }
@@ -39,6 +44,7 @@ const App = () => {
                 ? <Solution exercise={exerciseNumber} />
                 : null
             }
+            <Footer />
         </div>
     );
 };

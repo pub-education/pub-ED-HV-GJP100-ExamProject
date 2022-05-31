@@ -1,12 +1,10 @@
-.code {
-  height: 30%;
-}
-
 .exercise-wrapper {
   width: 100%;
   margin-top: 2rem;
   padding: 0px 1rem;
   flex: 10;
+  margin-bottom: 60px;
+  /* min-height: max-content; */
 }
 .exercise-wrapper > div {
   margin-top: 2rem;
@@ -15,22 +13,23 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
-.frame {
-  height: 40%;
-}
+
 iframe {
   width: 100%;
   background-color: whitesmoke;
-  height: 100%;
+  min-height: 300px;
+  color: black;
 }
 .textarea {
   width: 100%;
+  /* height: clamp(300px, 100%, 800px); */
   resize: none;
   overflow: hidden;
   height: fit-content;
   border: 1px darkblue solid;
   padding: 0.3rem 0.5rem;
   background-color: whitesmoke;
+  color: black;
 }
 textarea {
   width: 100%;
@@ -38,4 +37,5 @@ textarea {
   border: 1px darkblue solid;
   padding: 0.3rem 0.5rem;
   background-color: whitesmoke;
+  color: black;
 }

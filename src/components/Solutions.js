@@ -13,7 +13,7 @@ export default ({ exercise }) => {
             </div>
             <div className="code">
                 <label>Solution:</label><br />
-                <textarea readOnly value={code}></textarea>
+                <textarea readOnly rows="10" value={code}></textarea>
             </div>
             <div className="frame">
                 <label>Output from Script:</label><br />

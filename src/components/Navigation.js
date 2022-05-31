@@ -1,31 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navitem from './Navitem';
-
+import Moduleitem from './ModuleItem';
 
 export default ({ exerciseList, handleOnChange }) => {
     // console.log("Navigation exerciseList", exerciseList);
     // console.log("Navigation exerciseList.keys", Object.keys(exerciseList));
+    const [module, setModule] = useState("module_1");
     const handleOC = (value) => {
         // console.log("Navigation handleOC:", value);
-        handleOnChange(value);
+        handleOnChange(value, module);
     }
-    const items = Object.keys(exerciseList);
+    const handleModuleOC = (value) => {
+        setModule(value);
+    }
+    useEffect(() => {
+
+    }, [module])
+
+    const modules = Object.keys(exerciseList);
     return (
         <div className="nav">
-            {
-                items.map((item, i) => {
-                    return (
-                        <>
-                            <Navitem
-                                key={item}
-                                item={item}
-                                handleOnChange={handleOC}
-                            />
-                        </>
-                    );
+            <div className="nav">
+                {
+                    modules.map((item, i) => {
+                        return (
+                            <>
+                                <Moduleitem
+                                    key={item + i}
+                                    item={item}
+                                    checked={module === item}
+                                    handleOnChange={handleModuleOC}
+                                />
+                            </>
+                        );
 
-                })
-            }
+                    })
+                }
+            </div>
+
+            <div className="nav">
+                {
+                    Object.keys(exerciseList[module]).map((item, i) => {
+                        return (
+                            <>
+                                <Navitem
+                                    key={item + i}
+                                    item={item}
+                                    handleOnChange={handleOC}
+                                />
+                            </>
+                        );
+
+                    })
+                }
+            </div>
+
         </div>
     );
 };

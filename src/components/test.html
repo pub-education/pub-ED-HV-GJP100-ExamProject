@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-size: 16px;
+      }
+      #printout {
+        border-top: 1px silver solid;
+        padding-top: 1rem;
+        position: relative;
+      }
+      .wrapper {
+        padding: 0.5rem;
+      }
+      input {
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper" class="wrapper">
+      <!-- <label
+        >Generate
+        <input type="number" id="numb1" value="10" /> passwords.</label
+      ><br /> -->
+      <input type="button" onClick="run()" value="Run" />
+      <!--<br /><br /><label
+        >Enter a string to decrypt:<br /><input id="string2" value="J!ha&&#sso&"
+      /></label><input type="button" onClick="decrypt()" value="Decrypt" />
+
+      <input
+        id="string2"
+        value=""
+        placeholder="String 2 or blank"
+      /><br />
+      <input id="indx1" value="" placeholder="Index 1" /><input
+        id="indx2"
+        value=""
+        placeholder="Index 2 or blank"
+      /> -->
+      <input type="button" onclick="reset()" value="Reset" />
+      <div id="printout"><p>Run app.</p></div>
+    </div>
+    <script>
+      const ce = (element) => {
+        return document.createElement(element);
+      };
+
+      let Global = {};
+      /**
+       * ***** functions *****
+       */
+      const getCoordinates = () => {
+        const obj = document.querySelector("#printout");
+        const bodyWidth = obj.offsetWidth;
+        const objHeight = obj.offsetHeight;
+        const xCoord = Math.floor(Math.random() * (bodyWidth - 50));
+        const yCoord = Math.floor(Math.random() * (objHeight - 50));
+        const coord = {};
+        coord.x = xCoord;
+        coord.y = yCoord;
+        return coord;
+      };
+
+      const moveItem = () => {
+        const obj = document.querySelector("#box");
+        if (Number(Global.polar.theta) > 1.99) Global.polar.theta = 0;
+        const step = 0.01;
+        console.log("theta global", Global.polar.theta);
+        let thetaLocal = Global.polar.theta + step;
+        const xCoord =
+          Global.x0 -
+          obj.offsetWidth / 2 +
+          Global.polar.radius * Math.cos(thetaLocal * Math.PI);
+        const yCoord =
+          Global.y0 + Global.polar.radius * Math.sin(thetaLocal * Math.PI);
+        console.log(xCoord + " : " + yCoord + " : " + thetaLocal);
+        obj.style.left = xCoord.toString() + "px";
+        obj.style.top = yCoord.toString() + "px";
+        Global.polar.theta = thetaLocal;
+      };
+
+      const setUp = () => {
+        const obj = document.querySelector("#box");
+        const objContainer = document.querySelector("#printout");
+        const x0 = Math.round(objContainer.offsetWidth / 2);
+        const y0 = Math.round(
+          (Number(objContainer.offsetHeight) - objContainer.offsetTop) / 2
+        );
+        Global.polar = {};
+        if (objContainer.offsetHeight < objContainer.offsetWidth)
+          Global.polar.radius = y0 - Math.round(obj.offsetHeight / 2);
+        else Global.polar.radius = x0 - Math.round(obj.offsetWidth / 2);
+        Global.polar.theta = 0;
+        Global.x0 = x0;
+        Global.y0 = y0;
+        obj.style.left = Math.round(x0 - obj.offsetWidth / 2).toString() + "px";
+        obj.style.top = Math.round(Global.polar.radius).toString() + "px";
+        Global.timerId = setInterval(moveItem, 25);
+      };
+
+      const run = () => {
+        const obj = document.querySelector("#printout");
+        const height = document.body.offsetHeight - obj.offsetTop - 16;
+        obj.style.minHeight = height + "px";
+        const div = ce("div");
+        const h2 = ce("h2");
+        Global.distance = 0;
+        h2.innerHTML = "Glad påsk";
+        h2.setAttribute("style", "color:navy;");
+        div.setAttribute("id", "box");
+        div.setAttribute(
+          "style",
+          "position:absolute;display:flex;justify-content:center;align-items:center;width:200px;height:50px;border-radius:5px;background-color:whitesmoke;box-shadow: 0 0 3px grey;top:60px;left:10px;"
+        );
+        div.append(h2);
+        obj.replaceChildren(div);
+        setUp();
+      };
+
+      const reset = (text, rep) => {
+        clearInterval(Global.timerId);
+        document.querySelector("#printout").innerHTML = "<p>Run app.</p>";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+footer {
+  text-align: center;
+  position: absolute; /*important to footer placement*/
+  bottom: 0px; /*important to footer placement*/
+  background-color: transparent;
+  height: 60px; /*important to footer placement*/
+  width: 100vw;
+  border-top: 0.5px silver solid;
+  padding-top: 1rem;
+  margin: 0px;
+  font-size: 0.7rem;
+}
