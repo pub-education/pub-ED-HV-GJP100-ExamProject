@@ -1,6 +1,6 @@
 # Projekt Kurs GJP100 Högskolan Väst VT 2022.
 
-##Av Chris Johannesson
+## Av Chris Johannesson
 
 Bygger ett program som kommer att visa samtliga övningar och lösningar till de problem som angivits i respektive modul. Pga min olycka och konvalecens så kommer jag bara att ta med Modul 1 och 2.
 
@@ -21,10 +21,10 @@ Vi har alla våra komponenter i src/component foldern. Det är Navigation.js, Fo
 
 Navigation filen använder sig av komponenterna ModuleItem för att skapa huvudmemnyn där man väljer vilken modul man vill titta på och NavItem för att välja vilken uppgift man vill se frågeställning, lösning och en praktisk demonstration av lösningen som den ter sig i en browser.
 
-Solution är navet i hela sidan då det är där som all data från data.json placeras in i de tre områdena Assignment, Solution code och OUtput from code. Vi använder oss av ett iframe element då man kan ladda en hel html sida i den. Här så assimilerar vi html kod och javascripts koden till ett html dokument i variabeln html som sedan laddas med srcDoc attributet in i iframe.
+Solution är navet i hela sidan då det är där som all data från data.json placeras in i de tre områdena Assignment, Solution code och Output from code. Vi använder oss av ett iframe element då man kan ladda en hel html sida i den. Här så assimilerar vi html kod och javascripts koden till ett html dokument i variabeln html som sedan laddas med srcDoc attributet in i iframe.
 
 Info:
-För att kunna installera och köra projektet så rekomenderas node v17.3.0 jag rekomenderar också att man installerar nvm [nvm](https://github.com/nvm-sh/nvm) för att kunna jobba med olika versioner av node.
+För att kunna installera och köra projektet så rekomenderas node v17.3.0 som anv'ndes f;r att bygga projektet. Jag rekomenderar också att man installerar nvm [nvm](https://github.com/nvm-sh/nvm) för att kunna jobba med olika versioner av node.
 
 Packa upp zip filen och kör npm install i roten. Då installeras alla dependencies i node_modules foldern som inte skickas med pga storleken. Därefter så startas programmet med att man kör npm run app.
 
